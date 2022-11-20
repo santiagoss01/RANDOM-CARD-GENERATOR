@@ -25,14 +25,13 @@ let numero = document.querySelector(".numero");
 let lowerIcon = document.querySelector(".lowerIcon");
 let myText = document.querySelector("h1");
 let botones = document.getElementById("contenedordemenu");
-//let contenedorInput = document.getElementById("contenedorinput");
+let contenedorInput = document.getElementById("contenedorinput");
 
 window.onload = function randomCardgenerator() {
-  setTimeout(randomCardgenerator, 10000);
   let randomNum = numeros[Math.floor(Math.random() * (numeros.length - 1))];
   let currentClove = palos[Math.floor(Math.random() * palos.length)];
   botones.innerHTML = `<button type="button" id="randomCardgenerator" class="btn">Choose random card</button>`;
-  //contenedorInput.innerHTML = `<input placeholder="Set your own width"></input>`;
+  contenedorInput.innerHTML = `<input placeholder="Set your own width .px" id="yourWidth"></input>`;
 
   numero.innerHTML = randomNum;
   myText.innerHTML = "Your lucky card";
@@ -72,4 +71,10 @@ window.onload = function randomCardgenerator() {
   mybutton.addEventListener("click", e => {
     randomCardgenerator();
   });
+  let input = document.querySelector("#yourWidth");
+  input.addEventListener("change", e => {
+    cuerpoCarta.style.width = input.value + "px";
+    input.value = "";
+  });
+  setTimeout(randomCardgenerator, 10000);
 };
