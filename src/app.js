@@ -72,6 +72,7 @@ window.onload = function randomCardgenerator() {
     randomCardgenerator();
   });
   let input = document.querySelector("#yourWidth");
+  let cuerpoCarta = document.querySelector(".carta");
   input.addEventListener("change", e => {
     cuerpoCarta.style.width = input.value + "px";
     input.value = "";
